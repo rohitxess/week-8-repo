@@ -3,13 +3,21 @@ import express from 'express';
 import { authenticateJwt, SECRET } from "../middleware/";
 import { User } from "../db";
 import { signupInput } from "@100xdevs/common"
+import { z } from "zod";
 
 const router = express.Router();
+
+const signupInput = z.object({
+  username: z.string(),
+  password: z.string(),
+})
+
+type SignupParams = z.infer<typeof signupInput>;
 
 router.post('/signup', async (req, res) => {
     let parsedInput = signupInput.safeParse(req.body)
     if (!parsedInput.success) {
-      return res.status(403).json({
+      return res.status(411).json({
         msg: "error"
       });
     }
