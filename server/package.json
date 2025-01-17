@@ -1,8 +1,8 @@
 {
-  "name": "assignment-1",
-  "version": "1.0.0",
+  "name": "@xessro/common",
+  "version": "1.0.1",
   "description": "Convert this from JS to typescript.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
